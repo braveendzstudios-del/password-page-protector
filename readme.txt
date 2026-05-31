@@ -45,7 +45,7 @@ Current Version: 1.0.0
 
 ## Author
 
-Your Name
+Kulwinder Singh
 
 ## License
 
