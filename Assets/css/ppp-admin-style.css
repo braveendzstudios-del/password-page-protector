@@ -1,0 +1,72 @@
+/* Admin Styles for Password Page Protector Plugin */
+
+/* General Styles */
+.pp-content-wrapper{
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 30px;
+    flex: 1;
+}
+
+/* Main Heading */
+.wrap h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/*password form styles*/
+.pp-content-wrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* form field styles */
+.ppp-password-field , .pp-password-page-selector , 
+.pp-protection-page-to-protect-selector , .pp-protection-post-to-protect-selector{
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    align-self: flex-start;
+    min-width: 100%;
+}
+
+/*form field labels*/
+.ppp-password-field label , .pp-password-page-selector label 
+, .pp-protection-page-to-protect-selector label, .pp-protection-post-to-protect-selector label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* form field inputs and selects */
+.pp-password-page-selector select , .pp-protection-page-to-protect-selector select , 
+.pp-protection-post-to-protect-selector select{
+    min-width: 100%;
+    box-sizing: border-box;
+    flex:1;
+}
+
+/* password field specific styles */
+.ppp-password-field input[type=password]{
+    min-width: 100%;
+    box-sizing: border-box;
+    flex:1;
+}
+
+/* form buttons */
+button#ppp-save-btn , button#ppp-show-password{
+    max-width: 20%;
+}
+
+/* helper text */
+.warpp{
+    font-size: 16px;
+    color: #666;
+    margin: 0!important;
+}

@@ -1,0 +1,43 @@
+.dashicons-visibility:before
+{
+    content: "\f177";
+}
+
+.ppp-password-wrapper {
+    display: flex;
+    gap: 0;
+    border: 1px solid #000000;
+    min-width: 100%;
+}
+
+button#ppp-password-toggle {
+    border: none;
+    color: black;
+    background: transparent !important;
+}
+
+:focus-visible {
+    outline: none !important;
+}
+
+input#ppp-password-submit {
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    min-width: 100%;
+}
+
+.ppp-password-wrapper input[type=password] ,  .ppp-password-wrapper input[type=text]{
+    border:none;
+}
+
+.ppp-password-form {
+   display: flex;
+   align-items: start;
+   gap: 10px;
+   flex-direction: column;
+   max-width: 400px;
+   margin: 20px auto;
+}
