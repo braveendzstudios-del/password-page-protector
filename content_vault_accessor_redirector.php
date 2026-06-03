@@ -1,5 +1,5 @@
 <?php
-class ppp_redirector {
+class content_vault_accessor_redirector {
 
     public function __construct() {
         add_action( 'template_redirect', array( $this, 'handle_redirection' ) );
@@ -106,7 +106,7 @@ class ppp_redirector {
 
            setcookie( 'ppp_access_granted', '1', time() + 3600, '/' ); // Set access granted cookie for 1 hour
             
-            $redirect_url = isset($_COOKIE['ppp_target_url']) ? $_COOKIE['ppp_target_url'] : home_url();
+            $redirect_url = isset($_COOKIE['ppp_target_url']) ? esc_url_raw($_COOKIE['ppp_target_url']) : home_url();
              
             
             $page_id = get_option('ppp_page_id', 0);

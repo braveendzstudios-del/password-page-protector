@@ -1,7 +1,7 @@
 <?php
 // Handle the AJAX request to save settings
 
-class ppp_save_settings {
+class content_vault_accessor_settings {
 
     public function __construct() {
         add_action( 'wp_ajax_ppp_save_settings', array( $this, 'save_settings' ) );

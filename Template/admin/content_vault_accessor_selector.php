@@ -1,6 +1,6 @@
 <?php
 
-class password_page_selector{
+class content_vault_accessor_selector{
     
     public function render() {
        ob_start();
@@ -22,6 +22,7 @@ class password_page_selector{
 
               <form method="post" action="pp_save_settings" id="ppp-settings-form">
                 <input type="hidden" name="ppp_action" value="save_settings">
+                <?php wp_nonce_field( 'ppp_save_settings', 'ppp_nonce' ); ?>
 
                 <!--#Password Field-->
                  <div class="ppp-password-field">
@@ -47,9 +48,9 @@ class password_page_selector{
                             foreach ( $pages as $page ) {
 
                             if (has_shortcode($page->post_content, 'password_protector_form')) {
-                                  echo "<option value='{$page->ID}' " 
+                                  echo "<option value='" . esc_attr($page->ID) . "' " 
                                   . selected($saved_protection_page_id, $page->ID, false) . ">
-                                  {$page->post_title}</option>";
+                                  " . esc_html($page->post_title) . "</option>";
                             }
 
                         }
@@ -75,8 +76,8 @@ class password_page_selector{
                             if (!has_shortcode($page->post_content, 'password_protector_form')) {
                                 
 
-                                 echo "<option value='{$page->ID}'" 
-                                 . selected($saved_page_id, $page->ID, false) . ">{$page->post_title}</option>";
+                                 echo "<option value='" . esc_attr($page->ID) . "' " 
+                                 . selected($saved_page_id, $page->ID, false) . ">" . esc_html($page->post_title) . "</option>";
 
                             }
                         }
@@ -103,9 +104,9 @@ class password_page_selector{
                       $posts = get_posts( array( 'numberposts' => -1 ) );
                       foreach ( $posts as $post ) {
                           if ( ! has_shortcode( $post->post_content, 'password_protector_form' ) ) {
-                              echo "<option value='{$post->ID}'" 
+                              echo "<option value='" . esc_attr($post->ID) . "' " 
                               . selected( $saved_post_id, $post->ID, false ) . "
-                              >{$post->post_title}</option>";
+                              >" . esc_html($post->post_title) ."</option>";
                           }
                       }
                       ?>

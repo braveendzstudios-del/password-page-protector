@@ -1,5 +1,5 @@
 <?php
-class enqueue_scripts {
+class content_vault_accessor_enqueue_scripts {
     public function __construct() {
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'frontend_enqueue_scripts' ) );

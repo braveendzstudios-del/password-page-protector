@@ -1,6 +1,6 @@
 <?php
 
-class shortcode {
+class content_vault_accessor_shortcode {
     public function __construct() {
        add_shortcode('password_protector_form' , array( $this, 'password_protector_form' ));
     }

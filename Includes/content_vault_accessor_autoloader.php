@@ -1,6 +1,6 @@
 <?php
 
-class autoloader{
+class content_vault_accessor_autoloader{
     public function __construct() {
         spl_autoload_register( array( $this, 'autoload' ) );
     }

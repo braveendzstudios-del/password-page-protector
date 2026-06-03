@@ -1,5 +1,5 @@
 <?php
-class ppp_admin_menu {
+class content_vault_accessor_admin_menu {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
     }
@@ -20,7 +20,7 @@ class ppp_admin_menu {
     
     public function create_admin_page() {
       
-        $selector = new password_page_selector();
+        $selector = new content_vault_accessor_selector();
         echo $selector->render();
     }
 }
