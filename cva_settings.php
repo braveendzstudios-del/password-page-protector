@@ -1,15 +1,15 @@
 <?php
 // Handle the AJAX request to save settings
 
-class content_vault_accessor_settings {
+class cva_settings {
 
     public function __construct() {
-        add_action( 'wp_ajax_ppp_save_settings', array( $this, 'save_settings' ) );
+        add_action( 'wp_ajax_cva_save_settings', array( $this, 'save_settings' ) );
     }
 
     public function save_settings() {
         // Check nonce for security
-        check_ajax_referer( 'ppp_save_settings_nonce', 'security' );
+        check_ajax_referer( 'cva_save_settings_nonce', 'security' );
 
         // Get the posted data
         $password = isset( $_POST['password'] ) ? sanitize_text_field( $_POST['password'] ) : '';
@@ -18,10 +18,10 @@ class content_vault_accessor_settings {
         $post_id = isset( $_POST['post_id'] ) ? intval( $_POST['post_id'] ) : 0;
 
         // Save the settings (you can use update_option or a custom table)
-        update_option( 'ppp_password_id', $password );
-        update_option( 'ppp_protection_page_id', $protection_page_id );
-        update_option( 'ppp_page_id', $page_id );
-        update_option( 'ppp_post_id', $post_id );
+        update_option( 'cva_password_id', $password );
+        update_option( 'cva_protection_page_id', $protection_page_id );
+        update_option( 'cva_page_id', $page_id );
+        update_option( 'cva_post_id', $post_id );
 
         // Send a success response
         wp_send_json_success( array( 'message' => 'Settings saved successfully.' ) );

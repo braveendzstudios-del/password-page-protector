@@ -1,6 +1,6 @@
 <?php
 
-class content_vault_accessor_autoloader{
+class cva_autoloader{
     public function __construct() {
         spl_autoload_register( array( $this, 'autoload' ) );
     }

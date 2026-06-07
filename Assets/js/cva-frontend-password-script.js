@@ -1,16 +1,16 @@
 jQuery(document).ready(function ($) {
    
-    $('#ppp-password-submit').on('click', function (e) {
+    $('#cva-password-submit').on('click', function (e) {
         e.preventDefault();
    
-        var password = $('#password').val();
+        var password = $('#cva_password_id').val();
         $.ajax({
-            url: ppp_frontend_object.ajax_url,
+            url: cva_frontend_object.ajax_url,
             type: 'POST',
             data: {
-                action: 'ppp_check_password',
+                action: 'cva_check_password',
                 password: password,
-                nonce: ppp_frontend_object.nonce
+                nonce: cva_frontend_object.nonce
             },
             success: function (response) {
                 if (response.success) {
@@ -25,8 +25,8 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    $('#ppp-password-toggle').on('click', function () {
-        var passwordField = $('#password');
+    $('#cva-password-toggle').on('click', function () {
+        var passwordField = $('#cva_password_id');
         var type = passwordField.attr('type') === 'password' ? 'text' : 'password';
         passwordField.attr('type', type);
         $(this).find('.dashicons').toggleClass('dashicons-visibility dashicons-hidden');

@@ -3,14 +3,14 @@
     content: "\f177";
 }
 
-.ppp-password-wrapper {
+.cva-password-wrapper {
     display: flex;
     gap: 0;
     border: 1px solid #000000;
     min-width: 100%;
 }
 
-button#ppp-password-toggle {
+button#cva-password-toggle {
     border: none;
     color: black;
     background: transparent !important;
@@ -20,7 +20,7 @@ button#ppp-password-toggle {
     outline: none !important;
 }
 
-input#ppp-password-submit {
+input#cva-password-submit {
     padding: 10px 20px;
     background-color: #0073aa;
     color: #fff;
@@ -29,11 +29,11 @@ input#ppp-password-submit {
     min-width: 100%;
 }
 
-.ppp-password-wrapper input[type=password] ,  .ppp-password-wrapper input[type=text]{
+.cva-password-wrapper input[type=password] ,  .cva-password-wrapper input[type=text]{
     border:none;
 }
 
-.ppp-password-form {
+.cva-password-form {
    display: flex;
    align-items: start;
    gap: 10px;

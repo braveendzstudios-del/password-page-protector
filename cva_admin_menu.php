@@ -1,15 +1,16 @@
 <?php
-class content_vault_accessor_admin_menu {
+class cva_admin_menu {
+
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
     }
 
     public function add_plugin_page() {
         add_menu_page(
-            'Password Page Protector', // page title
-            'Password PageProtector', // menu title
+            'Content Vault Protector', // page title
+            'Content Vault Protector', // menu title
             'manage_options', // capability
-            'password-page-protector', // menu slug
+            'content-vault-protector', // menu slug
             array( $this, 'create_admin_page' ), // callback function
             'dashicons-lock' ,// icon
             
@@ -20,7 +21,7 @@ class content_vault_accessor_admin_menu {
     
     public function create_admin_page() {
       
-        $selector = new content_vault_accessor_selector();
+        $selector = new cva_admin_selector();
         echo $selector->render();
     }
 }

@@ -1,12 +1,12 @@
-=== Password Page Protector ===
-Contributors: kulwindersingh
-Tags: password, protect, page-protect, access-control, private-pages
+=== Content Vault Accessor ===
+Contributors: kulwindersingh5555
+Tags: password, protect, page-protect, access-control, private-pages ,  content-protection
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
-License URI: https://gnu.org
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 A lightweight WordPress plugin that protects selected pages and posts behind a custom password page.
 

@@ -1,10 +1,10 @@
 <?php
-class content_vault_accessor_redirector {
+class cva_redirector {
 
     public function __construct() {
         add_action( 'template_redirect', array( $this, 'handle_redirection' ) );
-        add_action('wp_ajax_nopriv_ppp_check_password', array($this, 'check_password'));
-        add_action('wp_ajax_ppp_check_password', array($this, 'check_password'));
+        add_action('wp_ajax_nopriv_cva_check_password', array($this, 'check_password'));
+        add_action('wp_ajax_cva_check_password', array($this, 'check_password'));
     }
 
     public function handle_redirection()
@@ -14,20 +14,20 @@ class content_vault_accessor_redirector {
           return;
        }
 
-       $protection_page_id = get_option('ppp_protection_page_id', 0);
-       $protected_page_id = get_option('ppp_page_id', 0);
-       $protected_post_id = get_option('ppp_post_id', 0);
+       $protection_page_id = get_option('cva_protection_page_id', 0);
+       $protected_page_id = get_option('cva_page_id', 0);
+       $protected_post_id = get_option('cva_post_id', 0);
 
        //page id cookie check for redirection logic
        if($protected_page_id && is_page($protected_page_id) 
-         &&   isset($_COOKIE['ppp_page_id'. $protected_page_id]) ) {
+         &&   isset($_COOKIE['cva_page_id'. $protected_page_id]) ) {
           
             return; // User has access, no redirection needed
         }
         
        //post id cookie check for redirection logic
         if($protected_post_id && is_single($protected_post_id) 
-         && isset($_COOKIE['ppp_post_id'. $protected_post_id]) ) {
+         && isset($_COOKIE['cva_post_id'. $protected_post_id]) ) {
           
             return; // User has access, no redirection needed
         }
@@ -40,7 +40,7 @@ class content_vault_accessor_redirector {
 
             setcookie(
 
-                'ppp_target_url',
+                'cva_target_url',
 
                 get_permalink(
                     $protected_page_id
@@ -68,7 +68,7 @@ class content_vault_accessor_redirector {
 
         
         if(is_single() && $protected_post_id && is_single($protected_post_id)) {
-            setcookie( 'ppp_target_url', 
+            setcookie( 'cva_target_url', 
             get_permalink($protected_post_id), time() + 3600, '/' ); 
             //set cookie to redirect user to the protected page after successful password entry
 
@@ -80,12 +80,12 @@ class content_vault_accessor_redirector {
 
     public function check_password() {
         
-        check_ajax_referer( 'ppp_frontend_password_nonce', 'nonce' );
+        check_ajax_referer( 'cva_frontend_password_nonce', 'nonce' );
 
         
        
         $password = isset($_POST['password']) ? sanitize_text_field($_POST['password']) : '';
-        $protection_page_id = get_option('ppp_protection_page_id', 0);
+        $protection_page_id = get_option('cva_protection_page_id', 0);
 
         if(is_page($protection_page_id)){
              return; // If we're on the protection page, no need to check password again
@@ -98,26 +98,26 @@ class content_vault_accessor_redirector {
         }
         
 
-        $stored_password = get_option('ppp_password_id' , '' );
+        $stored_password = get_option('cva_password_id' , '' );
 
         
 
         if ( $password === $stored_password ) {
 
-           setcookie( 'ppp_access_granted', '1', time() + 3600, '/' ); // Set access granted cookie for 1 hour
+           setcookie( 'cva_access_granted', '1', time() + 3600, '/' ); // Set access granted cookie for 1 hour
             
-            $redirect_url = isset($_COOKIE['ppp_target_url']) ? esc_url_raw($_COOKIE['ppp_target_url']) : home_url();
+            $redirect_url = isset($_COOKIE['cva_target_url']) ? esc_url_raw($_COOKIE['cva_target_url']) : home_url();
              
             
-            $page_id = get_option('ppp_page_id', 0);
-            $post_id = get_option('ppp_post_id', 0);
+            $page_id = get_option('cva_page_id', 0);
+            $post_id = get_option('cva_post_id', 0);
 
             if($page_id && $redirect_url === get_permalink($page_id)) {
-                setcookie('ppp_page_id' . $page_id, '1', time() + 3600, '/');
+                setcookie('cva_page_id' . $page_id, '1', time() + 3600, '/');
             }
             
             if($post_id && $redirect_url === get_permalink($post_id)) {
-                setcookie('ppp_post_id' . $post_id, '1', time() + 3600, '/');
+                setcookie('cva_post_id' . $post_id, '1', time() + 3600, '/');
             }
             wp_send_json_success( array( 'message' => 'Access granted.' , 'redirect_url' => $redirect_url )  );
 

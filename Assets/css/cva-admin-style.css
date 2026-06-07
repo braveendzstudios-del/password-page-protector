@@ -1,7 +1,7 @@
 /* Admin Styles for Password Page Protector Plugin */
 
 /* General Styles */
-.pp-content-wrapper{
+.cva-content-wrapper{
     padding: 60px;
     background-color: #fff;
     border-radius: 10px;
@@ -19,15 +19,15 @@
 
 
 /*password form styles*/
-.pp-content-wrapper form{
+.cva-content-wrapper form{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 /* form field styles */
-.ppp-password-field , .pp-password-page-selector , 
-.pp-protection-page-to-protect-selector , .pp-protection-post-to-protect-selector{
+.cva-password-field , .cva-password-page-selector , 
+.cva-protection-page-to-protect-selector , .cva-protection-post-to-protect-selector{
     display: flex;
     flex-flow: column;
     gap: 10px;
@@ -36,8 +36,8 @@
 }
 
 /*form field labels*/
-.ppp-password-field label , .pp-password-page-selector label 
-, .pp-protection-page-to-protect-selector label, .pp-protection-post-to-protect-selector label{
+.cva-password-field label , .cva-password-page-selector label 
+, .cva-protection-page-to-protect-selector label, .cva-protection-post-to-protect-selector label{
     font-size: 20px;
     font-weight: 500;
     color: #555;
@@ -45,28 +45,48 @@
 }
 
 /* form field inputs and selects */
-.pp-password-page-selector select , .pp-protection-page-to-protect-selector select , 
-.pp-protection-post-to-protect-selector select{
+.cva-password-page-selector select , .cva-protection-page-to-protect-selector select , 
+.cva-protection-post-to-protect-selector select{
     min-width: 100%;
     box-sizing: border-box;
     flex:1;
 }
 
 /* password field specific styles */
-.ppp-password-field input[type=password]{
+.cva-password-field input[type=password]{
     min-width: 100%;
     box-sizing: border-box;
     flex:1;
 }
 
 /* form buttons */
-button#ppp-save-btn , button#ppp-show-password{
+button#cva-save-btn , button#cva-show-password{
     max-width: 20%;
 }
 
 /* helper text */
-.warpp{
+.cva-helper-text{
     font-size: 16px;
     color: #666;
     margin: 0!important;
+}
+
+@media all and (max-width:768px){
+
+        .wrap{
+            padding: 20px;
+        }
+        .cva-content-wrapper{
+            padding: 40px 30px;
+        }
+
+       .wrap h1{
+            font-size: 26px;
+        }
+
+        button#cva-save-btn , button#cva-show-password{
+            max-width: 100%;
+        }
+
+
 }
