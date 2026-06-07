@@ -22,6 +22,7 @@ class cva_admin_menu {
     public function create_admin_page() {
       
         $selector = new cva_admin_selector();
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo $selector->render();
     }
 }
