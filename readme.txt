@@ -1,5 +1,6 @@
 === Content Vault Accessor ===
 Contributors: kulwindersingh5555
+slug: content-vault-accessor
 Tags: password, protect, page-protect, access-control, private-pages ,  content-protection
 Requires at least: 6.0
 Tested up to: 7.0
